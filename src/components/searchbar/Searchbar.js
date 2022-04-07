@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import s from "./Searchbar.module.css";
+import PropTypes from "prop-types";
 
 
 class Searchbar extends Component {
@@ -24,9 +25,24 @@ class Searchbar extends Component {
          }}
          className= {s.Searchbar}
          >
+             <form className={s.SearchForm}>
+                 <button type="submit" className={s.SearchFormButton}>
+                     <span className={s.SearchFormButtonLabel}>Search</span>
+                 </button>
+
+                 <input
+                 className={s.SearchFormInput}
+                 onChange={this.handleChange}
+                 type="text"
+                 name={this.state.value}
+                 autoComplete="off"
+                 autoFocus
+                 placeholder="Search images and fotos"
+                 />
+             </form>
 
          </header>
-     )  
+     );  
    }
-}
+};
 export default Searchbar;
